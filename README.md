@@ -99,7 +99,7 @@ Morphisms are $R$–algebra homomorphisms, but contravariant in the intended geo
 ```lean
 def Real_Hom (A B : C_Obj) := B.toRing →ₐ[R] A.toRing
 ```
-So a morphism Real_Hom A B is an $R$–algebra map $B \to A$, which we read as the geometric map $\operatorname{Spec}(A) \longrightarrow \operatorname{Spec}(B)$.
+So a morphism Real_Hom A B is an $R$–algebra map $B \to A$, which we read as the geometric map $\textsf{Spec}(A) \longrightarrow \textsf{Spec}(B)$.
 
 We turn this into a Lean Category:
 ```lean
@@ -115,8 +115,8 @@ seen as a morphism Cover ⟶ Base (remember the contravariance). In Lean:
 noncomputable def p_alg : Real_Hom .Cover .Base := Algebra.ofId R S
 ```
 So:
-- Base corresponds to the infinitesimal point $\operatorname{Spec}(R)$,
-- Cover corresponds to $\operatorname{Spec}(S)$,
+- Base corresponds to the infinitesimal point $\textsf{Spec}(R)$,
+- Cover corresponds to $\textsf{Spec}(S)$,
 - `p_alg` : Cover ⟶ Base is the “infinitesimal $\mu_2$–cover” (the torsor).
 
 This is the algebraic fragment of the “purely infinitesimal cover” that violates axiom $F5$.
@@ -152,7 +152,7 @@ theorem hom_base_to_cover_empty : IsEmpty (Real_Hom .Base .Cover) := by
 
 Conceptually:
 1. Assume $f : S \to R$ is an $R$–algebra hom.
-2. In $S$, the distinguished element $\delta := \texttt{root\_S}$ satisfies $\delta^2 = 1+\varepsilon$.
+2. In $S$, the distinguished element $\delta := $`root_S` satisfies $\delta^2 = 1+\varepsilon$.
 3.	Apply $f$:
 $f(\delta)^2 = f(1+\varepsilon) = 1+\varepsilon \in R$,
 since $f$ is $R$–linear and fixes elements of $R$.
@@ -174,7 +174,7 @@ Geometrically: the infinitesimal $\mu_2$–cover has no inverse; it is a genuine
 
 Now we build a “shape” functor
 
-$\texttt{Shape} : \texttt{C\_Obj} \to \mathsf{Type}$
+$\texttt{Shape} : \verb|C_Obj| \to \mathsf{Type}$
 
 deliberately chosen to forget all infinitesimal data:
 
@@ -228,13 +228,13 @@ This is the miniature version of the global statement: shape is not conservative
 Going back to the full generality, in the paper, the infinitesimal counterexample uses a point with a Weil algebra
 $A = \mathbb{Z}[\varepsilon]/(\varepsilon^2)$
 
-interpreting $\operatorname{Spec}(A)$ as a first-order infinitesimal neighborhood. This is exactly `R := DualNumber ℤ` in Lean. ￼
+interpreting $\textsf{Spec}(A)$ as a first-order infinitesimal neighborhood. This is exactly `R := DualNumber ℤ` in Lean. ￼
 
 Moreover, the extension
 
-$T := \operatorname{Spec}\big(\mathbb{Z}[\varepsilon,\delta] / (\varepsilon^2, \delta^2 - (1+\varepsilon))\big)$
+$T := \textsf{Spec}\big(\mathbb{Z}[\varepsilon,\delta] / (\varepsilon^2, \delta^2 - (1+\varepsilon))\big)$
 
-gives a $\mu_2$–torsor over $\operatorname{Spec}(A)$ that is nontrivial but has trivial shape. In the Lean model, `S` is the ring in which $\delta$ lives; the nontriviality is exactly the lemma `hom_base_to_cover_empty`.
+gives a $\mu_2$–torsor over $\textsf{Spec}(A)$ that is nontrivial but has trivial shape. In the Lean model, `S` is the ring in which $\delta$ lives; the nontriviality is exactly the lemma `hom_base_to_cover_empty`.
 
 Axiom $F5$ says that there are no covering families supported purely on nilpotent thickenings. When $F5$ fails, you can have finite covers that are invisible to shape, i.e. trivial after applying $\textsf{Shape}$ but nontrivial in the cohesive topos. This is the mechanism behind the failure of faithfulness of $\textsf{Shape}_* : \textsf{LCfin}(\mathcal{E}) \to \textsf{LCfin}(\mathcal{S}^\infty)$ in the global argument.
 
