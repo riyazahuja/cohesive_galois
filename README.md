@@ -1,6 +1,6 @@
 # Cohesion-Sensitive Galois Theory in Cohesive $\infty$-Topoi: A formalization
 
-Alongside our work in “Cohesion-Sensitive Galois Theory in Cohesive $\infty$-Topoi”, we e aim to formalize the core arguments of the paper in Lean 4. Namely, we currently isolate a simplification of an algebraic counterexample to the conservativism of the shape functor on cohesive $\infty$-topoi. We hope to develop this formalization further to better encompass and describe the full work.
+Alongside our work in ["Cohesion-Sensitive Galois Theory in Cohesive $\infty$-Topoi"](writeup.pdf), we aim to formalize the core arguments of the paper in Lean 4. Namely, we currently isolate a simplification of an algebraic counterexample to the conservativism of the shape functor on cohesive $\infty$-topoi. We hope to develop this formalization further to better encompass and describe the full work.
 
 At the level of cohesive $\infty$-topoi, we study a counterexample showing that the shape functor can fail to be conservative on finite locally constant objects because of purely infinitesimal finite covers (non-trivial $\mu_2$–torsors over nilpotent thickenings that trivialize under shape). In lean, we study the minimal algebraic situation where this phenomenon appears and prove that a “shape-like” functor does not reflect isomorphisms.
 
@@ -9,7 +9,7 @@ At the level of cohesive $\infty$-topoi, we study a counterexample showing that 
 
 We work over the ring of dual numbers
 $R := \mathbb{Z}[\varepsilon]/(\varepsilon^2) \;\cong\; \texttt{DualNumber ℤ}$,
-implemented in Mathlib as `DualNumber ℤ`. Dual numbers are of the form $a + b\varepsilon$ with $\varepsilon^2 = 0$ and appear both in algebra and in synthetic differential geometry as the first-order infinitesimal thickening of a point. ￼
+implemented in [Mathlib](https://github.com/leanprover-community/mathlib4) as `DualNumber ℤ`. Dual numbers are of the form $a + b\varepsilon$ with $\varepsilon^2 = 0$ and appear both in algebra and in synthetic differential geometry as the first-order infinitesimal thickening of a point.
 
 In the infinitesimal counterexample in the paper, the key object is a non-trivial $\mu_2$–torsor over a nilpotent thickening, obtained by adjoining a square root of $1+\varepsilon$. Algebraically, we want to show:
 
